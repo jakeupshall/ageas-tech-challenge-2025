@@ -1,13 +1,19 @@
-import { Input } from 'components';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import { Dashboard } from 'modules';
 
 import './styles/base.scss';
 
+const queryClient = new QueryClient();
+
 export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">Weather Getter</header>
-      <Input />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="app">
+        <header className="app__header">What Weather?</header>
+        <Dashboard />
+      </div>
+    </QueryClientProvider>
   );
 };
 
